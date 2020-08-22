@@ -1,17 +1,16 @@
 class Solution {
-    public char firstUniqChar(String s) {
-        HashMap<Character, Boolean> dic = new HashMap<>();
-        char[] sc = s.toCharArray();
-        for(char c : sc){
-            dic.put(c, !dic.containsKey(c));
-        }            
-        for(char c : sc){
-            if(dic.get(c)){
-                return c;
-            } 
-        }      
-        return ' ';
+    public int missingNumber(int[] nums) {
+        int i = 0, j = nums.length - 1;
+        while(i <= j) {
+            int m = (i + j) / 2;
+            if(nums[m] == m) {
+                i = m + 1;
+            }
+            else {
+                j = m - 1;
+            }
+        }
+        return i;
     }
 }
-
 
